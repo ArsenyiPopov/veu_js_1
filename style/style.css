@@ -72,7 +72,7 @@ height: 700px;
   .main_block {
     display: flex;
     height: 100%;
-    background-image: url(/img/background.png);
+    background-image: url(../img/background.png);
     border-radius: 80px;
   }
   .main_block__content {
