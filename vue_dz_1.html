@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dz_1</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id="app" class="demo">
+        <button @click="reverseText" :style="buttonStyles">{{buttonText}}</button>
+
+        <ul>
+            <li v-for="(item, index) in list" :key="index" @click="removeItem(index)">{{ item }}</li>
+        </ul>
+        <button @click="addItem">Добавить</button>
+
+    </div>
+    <script>
+        const app = {
+            data() {
+                return {
+                    buttonText: 'перевернуть',
+                
+                buttonStyles: {
+                    backgroundColor: 'blue',
+                    color: 'white',
+                    width: '200px'
+                },
+                list: [] // Список элементов
+            }
+            },
+            methods: {
+                reverseText() {
+                    // Переворачиваем текст кнопки
+                    this.buttonText = this.buttonText.split('').reverse().join('');
+                },
+                addItem() {
+                this.list.push('Новый элемент списка');
+            },
+            removeItem(index) {
+                this.list.splice(index,1)
+            }
+            }
+
+        };
+
+        Vue.createApp(app).mount('#app')  
+    </script>
+</body>
+
+</html>
